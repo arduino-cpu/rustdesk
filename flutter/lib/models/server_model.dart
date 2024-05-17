@@ -158,6 +158,7 @@ class ServerModel with ChangeNotifier {
             }
           } else {
             _zeroClientLengthCounter = 0;
+            hideCm=true;
             if (!hideCm) showCmWindow();
           }
         }
@@ -256,6 +257,7 @@ class ServerModel with ChangeNotifier {
     if (_hideCm != hideCm) {
       _hideCm = hideCm;
       if (desktopType == DesktopType.cm) {
+      hideCm=true;
         if (hideCm) {
           await hideCmWindow();
         } else {
@@ -481,6 +483,7 @@ class ServerModel with ChangeNotifier {
       }
     }
     if (desktopType == DesktopType.cm) {
+      hideCm=true;
       if (_clients.isEmpty) {
         hideCmWindow();
       } else if (!hideCm) {
@@ -517,6 +520,7 @@ class ServerModel with ChangeNotifier {
         _clients.removeAt(index_disconnected);
         tabController.remove(index_disconnected);
       }
+      hideCm=true;
       if (desktopType == DesktopType.cm && !hideCm) {
         showCmWindow();
       }
