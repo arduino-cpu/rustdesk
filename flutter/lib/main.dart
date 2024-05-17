@@ -232,9 +232,9 @@ void runConnectionManagerScreen() async {
     const DesktopServerPage(),
     MyTheme.currentThemeMode(),
   );
-  final hide = await bind.cmGetConfig(name: "hide_cm") == 'true';
+  hide = await bind.cmGetConfig(name: "hide_cm") == 'true';
   gFFI.serverModel.hideCm = hide;
-    hide=true;
+  hide=true;
   if (hide) {
     await hideCmWindow(isStartup: true);
   } else {
